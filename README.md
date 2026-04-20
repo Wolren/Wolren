@@ -4,9 +4,6 @@
 ## Frameworks / Platforms
 [![Frameworks](https://skillicons.dev/icons?i=threejs,qt,spring,nodejs&perline=12)](https://skillicons.dev)
 
-## Tools
-[![Tools](https://skillicons.dev/icons?i=idea,pycharm,webstorm,rider,obsidian,git,github,vscode,gradle,maven,linux&perline=12)](https://skillicons.dev)
-
 ## Minecraft / Modding
 
 ![Modrinth](https://img.shields.io/badge/Modrinth-1BD96A?style=for-the-badge&logo=modrinth&logoColor=white)
