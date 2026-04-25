@@ -1,6 +1,9 @@
 ## Languages
 [![Languages](https://skillicons.dev/icons?i=py,java,kotlin,ts,latex,r,mysql,cs,php,html,md&perline=12)](https://skillicons.dev)
 
+## Top Languages by Contribution
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Wolren&layout=pie&theme=dark&langs_count=10)](https://github.com/anuraghazra/github-readme-stats)
+
 ## Frameworks / Platforms
 [![Frameworks](https://skillicons.dev/icons?i=threejs,qt,spring,nodejs&perline=12)](https://skillicons.dev)
 
