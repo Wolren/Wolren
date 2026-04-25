@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Generate a GIS-styled language contribution donut chart.
+Generate a programming language contribution map visualization.
 Fetches language bytes from all accessible GitHub repos (owned + contributed to),
-excludes specified repos/languages, and saves assets/language-map-pie.png.
+excludes specified repos/languages, and renders an elevation-style contour donut chart.
 """
 
 import os
@@ -14,6 +14,7 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 from matplotlib.patches import FancyArrowPatch
 import numpy as np
+from matplotlib.colors import LinearSegmentedColormap
 
 # ── Config ────────────────────────────────────────────────────────────────────
 TOKEN    = os.environ['GH_TOKEN']
@@ -23,8 +24,8 @@ OUT_PATH = os.environ.get('OUT_PATH', 'assets/language-map-pie.png')
 # Repos whose language bytes are entirely skipped (SDK/boilerplate noise)
 EXCLUDE_REPOS = set(filter(None, os.environ.get('EXCLUDE_REPOS', '').split(',')))
 
-# Individual languages to skip (e.g. auto-generated XML)
-EXCLUDE_LANGS = set(filter(None, os.environ.get('EXCLUDE_LANGS', 'C#,C++,HLSL,GLSL,ShaderLab').split(',')))
+# Individual languages to skip (e.g. auto-generated XML, markup, stylesheets)
+EXCLUDE_LANGS = set(filter(None, os.environ.get('EXCLUDE_LANGS', 'C#,C++,HLSL,GLSL,ShaderLab,HTML,CSS,Markdown').split(',')))
 
 # Slices smaller than this % are merged into "Other"
 MIN_SLICE_PCT = float(os.environ.get('MIN_SLICE_PCT', '1.5'))
@@ -131,13 +132,31 @@ def draw_chart(slices):
     sizes  = [s[1] for s in slices]
     colors = (GIS_COLORS * 4)[:len(slices)]
 
-    fig = plt.figure(figsize=(6, 5), facecolor=BG_COLOR)
+    fig = plt.figure(figsize=(6.5, 5.5), facecolor=BG_COLOR)
     ax  = fig.add_axes([0.05, 0.08, 0.90, 0.82])
     ax.set_facecolor(BG_COLOR)
 
-    # --- draw graticule rings (GIS map feel) ---
-    for r in np.linspace(0.35, 0.90, 5):
-        circle = plt.Circle((0, 0), r, color='#1F2937', fill=False, linewidth=0.4, linestyle='--')
+    # --- topographic elevation contours (GIS elevation feel) ---
+    # Create a radial gradient mimicking elevation levels
+    elevation_levels = [
+        (0.35, '#1A2F23', 0.6),  # deepest valley
+        (0.45, '#254433', 0.5),
+        (0.55, '#2F5A42', 0.4),
+        (0.65, '#3A6F51', 0.3),
+        (0.75, '#458560', 0.25),
+        (0.85, '#509B6F', 0.2),  # highland
+        (0.92, '#5BB17E', 0.15), # peak elevation
+    ]
+    
+    for radius, color, lw in elevation_levels:
+        circle = plt.Circle((0, 0), radius, color=color, fill=False, 
+                           linewidth=lw, linestyle='-', alpha=0.4, zorder=1)
+        ax.add_patch(circle)
+    
+    # Dashed contour lines (traditional topographic style)
+    for r in np.linspace(0.40, 0.88, 7):
+        circle = plt.Circle((0, 0), r, color='#3A5A45', fill=False, 
+                           linewidth=0.3, linestyle=':', alpha=0.6, zorder=2)
         ax.add_patch(circle)
 
     # --- donut ---
@@ -146,32 +165,33 @@ def draw_chart(slices):
         colors=colors,
         startangle=90,
         counterclock=False,
-        wedgeprops=dict(width=0.45, edgecolor=BG_COLOR, linewidth=1.5),
+        wedgeprops=dict(width=0.45, edgecolor='#1A2F23', linewidth=1.8, alpha=0.92),
         radius=1.0,
+        zorder=5,
     )
 
-    # subtle white highlight on each wedge
+    # Subtle edge styling
     for w in wedges:
-        w.set_linewidth(1.2)
-        w.set_edgecolor('#1F2937')
+        w.set_linewidth(1.5)
+        w.set_edgecolor('#0D1117')
 
     # --- centre badge ---
     centre_circle = plt.Circle((0, 0), 0.55, color=PANEL_COLOR, zorder=10)
     ax.add_patch(centre_circle)
     # thin accent ring
-    ring = plt.Circle((0, 0), 0.555, color=ACCENT, fill=False, linewidth=1.5, zorder=11)
+    ring = plt.Circle((0, 0), 0.558, color=ACCENT, fill=False, linewidth=2.0, zorder=11)
     ax.add_patch(ring)
 
-    ax.text(0,  0.13, USERNAME, ha='center', va='center',
-            fontsize=9, color=ACCENT, fontweight='bold',
+    ax.text(0,  0.15, USERNAME, ha='center', va='center',
+            fontsize=10, color=ACCENT, fontweight='bold',
             fontfamily='monospace', zorder=12)
-    ax.text(0, -0.03, 'LANG', ha='center', va='center',
-            fontsize=7, color=SUBTEXT, fontfamily='monospace', zorder=12)
-    ax.text(0, -0.18, 'MAP', ha='center', va='center',
-            fontsize=14, color=TEXT_COLOR, fontweight='bold',
+    ax.text(0, -0.02, 'CODE', ha='center', va='center',
+            fontsize=7.5, color=SUBTEXT, fontfamily='monospace', zorder=12)
+    ax.text(0, -0.20, 'MAP', ha='center', va='center',
+            fontsize=15, color=TEXT_COLOR, fontweight='bold',
             fontfamily='monospace', zorder=12)
 
-    # --- legend ---
+    # --- legend (larger text) ---
     legend_patches = [
         mpatches.Patch(
             color=colors[i],
@@ -182,39 +202,41 @@ def draw_chart(slices):
     leg = ax.legend(
         handles=legend_patches,
         loc='lower center',
-        bbox_to_anchor=(0.5, -0.22),
+        bbox_to_anchor=(0.5, -0.24),
         ncol=3,
         frameon=True,
         facecolor=PANEL_COLOR,
         edgecolor='#30363D',
         labelcolor=TEXT_COLOR,
-        fontsize=6.5,
-        handlelength=1.0,
-        handleheight=0.9,
-        columnspacing=1.0,
+        fontsize=7.5,        # increased from 6.5
+        handlelength=1.2,
+        handleheight=1.0,
+        columnspacing=1.2,
     )
 
     # --- title ---
     ax.set_title(
-        'Language Contribution Map',
+        'Programming Language Contribution Map',
         color=TEXT_COLOR,
-        fontsize=9,
+        fontsize=10,         # increased from 9
+        fontweight='600',
         fontfamily='monospace',
-        pad=10,
+        pad=12,
         loc='center',
     )
 
-    # cardinal compass tick marks (GIS flavour)
-    for angle, label in [(90, 'N'), (0, 'E'), (270, 'S'), (180, 'W')]:
+    # elevation markers (replaces compass; mimics elevation heights)
+    for angle, label in [(90, '↑ 2.1k'), (0, '→ 1.5k'), (270, '↓ 800'), (180, '← 1.2k')]:
         rad = np.radians(angle)
         ax.text(
-            1.12 * np.cos(rad), 1.12 * np.sin(rad), label,
+            1.14 * np.cos(rad), 1.14 * np.sin(rad), label,
             ha='center', va='center',
-            fontsize=5.5, color='#30363D', fontfamily='monospace',
+            fontsize=6, color='#3A5A45', fontfamily='monospace',
+            alpha=0.7,
         )
 
-    ax.set_xlim(-1.3, 1.3)
-    ax.set_ylim(-1.3, 1.3)
+    ax.set_xlim(-1.35, 1.35)
+    ax.set_ylim(-1.35, 1.35)
     ax.set_aspect('equal')
     ax.axis('off')
 
