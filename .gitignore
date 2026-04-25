@@ -1,0 +1,52 @@
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+*.whl
+
+# Virtual environments
+.venv/
+venv/
+env/
+.env/
+ENV/
+
+# ── Secrets / environment ─────────────────────────────────────────────────────
+# Never accidentally commit a token or local env override
+.env
+.env.*
+!.env.example
+*.env
+
+# ── Local chart outputs ───────────────────────────────────────────────────────
+# The canonical outputs live in assets/ and are committed by the bot.
+# Ignore any intermediate / locally-generated variants so they don't
+# accidentally get staged alongside a real run.
+assets/language-map-pie_local.png
+assets/language-map-pie_local.json
+# If OUT_PATH is ever pointed at a temp path during local testing:
+/tmp/
+
+# ── JetBrains IDEs (DataSpell / PyCharm / WebStorm) ──────────────────────────
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# ── VS Code ───────────────────────────────────────────────────────────────────
+.vscode/
+*.code-workspace
+
+# ── OS artifacts ─────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Matplotlib cache ─────────────────────────────────────────────────────────
+.matplotlib/
