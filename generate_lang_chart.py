@@ -167,7 +167,6 @@ def draw_chart(slices):
         counterclock=False,
         wedgeprops=dict(width=0.45, edgecolor='#1A2F23', linewidth=1.8, alpha=0.92),
         radius=1.0,
-        zorder=5,
     )
 
     # Subtle edge styling
