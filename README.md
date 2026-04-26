@@ -1,6 +1,8 @@
+<!--
 <table>
 <tr>
 <td valign="top" width="55%">
+-->
 
 ## Languages
 [![Languages](https://skillicons.dev/icons?i=py,java,kotlin,ts,latex,r,mysql,cs,php,html,md&perline=6)](https://skillicons.dev)
