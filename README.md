@@ -8,6 +8,7 @@
 ## Frameworks / Platforms
 [![Frameworks](https://skillicons.dev/icons?i=threejs,qt,spring,nodejs&perline=6)](https://skillicons.dev)
 
+<!--
 </td>
 <td valign="top" width="45%">
 
@@ -16,6 +17,7 @@
 </td>
 </tr>
 </table>
+-->
 
 ## Minecraft / Modding
 
