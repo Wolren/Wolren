@@ -1,11 +1,3 @@
-[![License](https://img.shields.io/github/license/Wolren/Wolren)](LICENSE)
-[![Last commit](https://img.shields.io/github/last-commit/Wolren/Wolren)](https://github.com/Wolren/Wolren/commits)
-[![Issues](https://img.shields.io/github/issues/Wolren/Wolren)](https://github.com/Wolren/Wolren/issues)
-[![Repo size](https://img.shields.io/github/repo-size/Wolren/Wolren)](https://github.com/Wolren/Wolren)
-[![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)](generate_lang_chart.py)
-[![Profile](https://img.shields.io/badge/GitHub-Wolren-181717?logo=github)](https://github.com/Wolren)
-[![Followers](https://img.shields.io/github/followers/Wolren?logo=github)](https://github.com/Wolren)
-
 <!--
 <table>
 <tr>
