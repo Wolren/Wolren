@@ -5,7 +5,7 @@
 -->
 
 ## Languages
-[![Languages](https://skillicons.dev/icons?i=py,java,rust,ts,mysql,latex,r,cs&perline=5)](https://skillicons.dev)
+[![Languages](https://skillicons.dev/icons?i=py,java,kotlin,rust,ts,mysql,latex,r,cs&perline=5)](https://skillicons.dev)
 
 ## Frameworks / Platforms
 [![Frameworks](https://skillicons.dev/icons?i=threejs,qt,spring,nodejs&perline=6)](https://skillicons.dev)
