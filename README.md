@@ -16,7 +16,7 @@
 ![Paper](https://img.shields.io/badge/Paper-white?style=for-the-badge)
 
 </td>
-<td valign="top" width="45%">
+<td valign="middle" width="45%">
 
 ![Activity Grid](https://raw.githubusercontent.com/Wolren/Shapegrid/master/docs/assets/shapegrid.png)
 
