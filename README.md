@@ -27,3 +27,9 @@
 ![Spigot](https://img.shields.io/badge/Spigot-F7A41D?style=for-the-badge)
 ![Fabric](https://img.shields.io/badge/Fabric-DBD0B4?style=for-the-badge)
 ![Paper](https://img.shields.io/badge/Paper-white?style=for-the-badge)
+
+---
+
+## GitHub Activity
+
+![Activity Grid](https://raw.githubusercontent.com/Wolren/Shapegrid/master/dist/shapegrid.svg)
