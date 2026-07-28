@@ -1,25 +1,12 @@
-<!--
 <table>
 <tr>
 <td valign="top" width="55%">
--->
 
 ## Languages
 [![Languages](https://skillicons.dev/icons?i=py,java,kotlin,rust,ts,mysql,latex,r,cs&perline=5)](https://skillicons.dev)
 
 ## Frameworks / Platforms
 [![Frameworks](https://skillicons.dev/icons?i=threejs,qt,spring,nodejs&perline=6)](https://skillicons.dev)
-
-<!--
-</td>
-<td valign="top" width="45%">
-
-![Language Contribution Map](assets/language-map-pie.png)
-
-</td>
-</tr>
-</table>
--->
 
 ## Minecraft / Modding
 
@@ -28,6 +15,11 @@
 ![Fabric](https://img.shields.io/badge/Fabric-DBD0B4?style=for-the-badge)
 ![Paper](https://img.shields.io/badge/Paper-white?style=for-the-badge)
 
----
+</td>
+<td valign="top" width="45%">
 
 ![Activity Grid](https://raw.githubusercontent.com/Wolren/Shapegrid/master/docs/assets/shapegrid.png)
+
+</td>
+</tr>
+</table>
