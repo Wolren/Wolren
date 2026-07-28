@@ -29,7 +29,8 @@
 ![Paper](https://img.shields.io/badge/Paper-white?style=for-the-badge)
 
 ---
-
+<!--
 ## GitHub Activity
 
 ![Activity Grid](https://raw.githubusercontent.com/Wolren/Shapegrid/master/dist/shapegrid.svg)
+-->
