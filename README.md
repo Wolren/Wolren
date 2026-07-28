@@ -30,6 +30,4 @@
 
 ---
 
-## GitHub Activity
-
 ![Activity Grid](https://raw.githubusercontent.com/Wolren/Shapegrid/master/docs/assets/shapegrid.png)
