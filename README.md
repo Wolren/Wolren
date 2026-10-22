@@ -5,9 +5,6 @@
 ## Languages
 [![Languages](https://skillicons.dev/icons?i=py,java,kotlin,rust,ts,mysql,latex,r&perline=5)](https://skillicons.dev)
 
-## Frameworks / Libraries
-[![Frameworks](https://skillicons.dev/icons?i=threejs,qt,spring&perline=6)](https://skillicons.dev)
-
 ## Minecraft / Modding
 
 ![Modrinth](https://img.shields.io/badge/Modrinth-1BD96A?style=for-the-badge&logo=modrinth&logoColor=white)
