@@ -3,7 +3,7 @@
 <td valign="top" width="55%">
 
 ## Languages
-[![Languages](https://skillicons.dev/icons?i=py,java,kotlin,rust,ts,mysql,latex,r&perline=5)](https://skillicons.dev)
+[![Languages](https://skillicons.dev/icons?i=java,rust,py,kotlin,,ts,mysql,latex,r&perline=5)](https://skillicons.dev)
 
 ## Minecraft / Modding
 
