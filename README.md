@@ -15,7 +15,7 @@
 </td>
 <td valign="middle" width="45%">
 
-<img src="https://raw.githubusercontent.com/Wolren/Shapegrid/master/docs/assets/shapegrid.png" alt="Activity Grid" width="100%" height="100%" style="object-fit: cover; display: block; border-radius: 8px;">
+<img src="https://raw.githubusercontent.com/Wolren/Shapegrid/master/docs/assets/shapegrid.png" alt="Activity Grid" width="100%" height="auto" style="object-fit: contain; display: block; border-radius: 8px;">
 
 </td>
 </tr>
